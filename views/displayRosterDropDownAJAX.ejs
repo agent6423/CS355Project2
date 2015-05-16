@@ -1,0 +1,97 @@
+<% var js_include = ['select_ajax.js']; %>
+<% include header %>
+
+<style>
+    header {
+        background-color:gold;
+        color:white;
+        text-align:center;
+        padding:5px;
+    }
+    nav {
+        line-height:30px;
+        background-color:goldenrod;
+        height:645px;
+        width:150px;
+        float:left;
+        padding:5px;
+    }
+    section {
+        width:520px;
+        float:left;
+        padding:10px;
+    }
+    footer {
+        background-color:gold;
+        color:black;
+        clear:both;
+        text-align:center;
+        padding:5px;
+    }
+</style>
+<header>
+    <h1>GSW MANAGEMENT</h1>
+</header>
+<nav>
+    <br>
+    <a href="/">Home</a><br>
+    <a href="/course/create">Add Players</a><br>
+    <a href="/course/dropdown_ajax">Team Roster</a><br>
+    <a href="/course/startinglineup">Starting Lineup</a><br>
+    <a href="/course/seasonstats">Season Statistics</a><br>
+    <a href="/course/gamestats">Game Statistics</a><br>
+    <a href="/course/points">Total Points in Game</a><br>
+    <a href="/course/highscoring">High Scoring Players</a><br>
+    <a href="/about">About</a><br>
+</nav>
+
+
+
+<section>
+<center><h2>Select A Player From The Roster</h2>
+
+<% if(rs.length > 0) { %>
+
+<form id="ajax_form_example" method="get" action="/course">
+    <label for="courseid">Player's Name:</label>
+    <select id="courseid" name="courseid">
+        <option value=""><!-- intentionally left blank --></option>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <option value="<%= rs[i].Num %>">
+            <%= rs[i].Name %>
+        </option>
+        <% } %>
+    </select>
+</form>
+<% } else { %>
+The table does not contain any records.
+<% } %>
+<br />
+<div id="output" style="display:none;"></div>
+
+
+<div><br><br><br>
+
+    <% if(rs.length > 0) { %>
+    <table border="3">
+        <tr><th>Name</th><th>N.O.</th><th>Edit Using N.O.</th><th><!-- delete --></th></tr>
+
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/course/?courseid=<%= rs[i].Num %>"><%= rs[i].Name %>
+                    <td><%= rs[i].Num %></td>
+                    <td><a href="/course/update/?courseid=<%= rs[i].Num %>">Edit</td>
+                    <td><a href="/course/deleteroster/?courseid=<%= rs[i].Num %>">Delete</td></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No courses are entered into the Course database table.
+    <% } %>
+</div>
+    <br><a href="/course/create">Add Players</a>
+</center>
+
+</section>
+
+<footer>Copyright © Danit</footer>

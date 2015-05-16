@@ -1,0 +1,15 @@
+
+<section>
+<% if(rs.length > 0) { %>
+    N.O. : <%= rs[0].Num %> <br />
+    NAME : <%= rs[0].Name %> <br />
+    POSITION : <%= rs[0].Position %> <br />
+    AGE : <%= rs[0].Age %> <br />
+    HEIGHT : <%= rs[0].Height %> <br />
+    WEIGHT : <%= rs[0].Weight %> <br />
+    COLLEGE : <%= rs[0].College %> <br />
+<% } else { %>
+No player name matched this player N.O. <%= courseid %>.
+<% } %>
+
+</section>

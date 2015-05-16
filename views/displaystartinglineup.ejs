@@ -1,0 +1,73 @@
+<% include header %>
+<style>
+    header {
+        background-color:gold;
+        color:white;
+        text-align:center;
+        padding:5px;
+    }
+    nav {
+        line-height:30px;
+        background-color:goldenrod;
+        height:645px;
+        width:150px;
+        float:left;
+        padding:5px;
+    }
+    section {
+        width:520px;
+        float:left;
+        padding:10px;
+    }
+    footer {
+        background-color:gold;
+        color:black;
+        clear:both;
+        text-align:center;
+        padding:5px;
+    }
+</style>
+<header>
+    <h1>GSW MANAGEMENT</h1>
+</header>
+<nav>
+    <br>
+    <a href="/">Home</a><br>
+    <a href="/course/create">Add Players</a><br>
+    <a href="/course/dropdown_ajax">Team Roster</a><br>
+    <a href="/course/startinglineup">Starting Lineup</a><br>
+    <a href="/course/seasonstats">Season Statistics</a><br>
+    <a href="/course/gamestats">Game Statistics</a><br>
+    <a href="/course/points">Total Points in Game</a><br>
+    <a href="/course/highscoring">High Scoring Players</a><br>
+    <a href="/about">About</a><br>
+</nav>
+
+
+    <div>
+        <h1>Team Starting Lineup</h1>
+    <% if(rs.length > 0) { %>
+        <table border="3">
+            <tr><th>PositionID</th><th>Position</th><th>Starter</th><th>Second</th>
+                <th>Third</th><th>Edit Using PositionID.</th><th><!-- delete --></th></tr>
+
+            <% for (var i=0; rs.length > i; i++) { %>
+                <tr>
+                 <td><%= rs[i].PositionID %></td><td><%= rs[i].Position %>
+                         </td><td><%= rs[i].Starter %></td><td><%= rs[i].Second %></td><td><%= rs[i].Third %></td>
+                         <td><a href="/course/updatestarting/?courseid=<%= rs[i].Num %>">Edit</td>
+                    <td><a href="/course/deletestarting/?courseid=<%= rs[i].PositionID %>">Delete</td></a></td>
+                </tr>
+            <% } %>
+        </table>
+    <% } else { %>
+         No courses are entered into the Course database table.
+    <% } %>
+        </div>
+
+    <div style="margin-top:10px;">
+        <a href="/course/createstarting">Add Player To Starting Lineup.</a>
+    </div>
+
+
+<footer>Copyright © Danit</footer>

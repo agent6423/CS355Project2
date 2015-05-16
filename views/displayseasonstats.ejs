@@ -1,0 +1,74 @@
+<% include header %>
+<style>
+    header {
+        background-color:gold;
+        color:white;
+        text-align:center;
+        padding:5px;
+    }
+    nav {
+        line-height:30px;
+        background-color:goldenrod;
+        height:645px;
+        width:150px;
+        float:left;
+        padding:5px;
+    }
+    section {
+        width:520px;
+        float:left;
+        padding:10px;
+    }
+    footer {
+        background-color:gold;
+        color:black;
+        clear:both;
+        text-align:center;
+        padding:5px;
+    }
+</style>
+<header>
+    <h1>GSW MANAGEMENT</h1>
+</header>
+<nav>
+    <br>
+    <a href="/">Home</a><br>
+    <a href="/course/create">Add Players</a><br>
+    <a href="/course/dropdown_ajax">Team Roster</a><br>
+    <a href="/course/startinglineup">Starting Lineup</a><br>
+    <a href="/course/seasonstats">Season Statistics</a><br>
+    <a href="/course/gamestats">Game Statistics</a><br>
+    <a href="/course/points">Total Points in Game</a><br>
+    <a href="/course/highscoring">High Scoring Players</a><br>
+    <a href="/about">About</a><br>
+</nav>
+
+
+    <div>
+        <h1>Player's Season Statistics</h1>
+    <% if(rs.length > 0) { %>
+        <table border="3">
+            <tr><th>Name</th><th>N.O.</th><th>MPG</th><th>FGP</th><th>3PP</th>
+                <th>APG</th><th>RPG</th><th>SPG</th><th>PPG</th><th>Edit Using N.O.</th><th><!-- delete --></th></tr>
+
+            <% for (var i=0; rs.length > i; i++) { %>
+                <tr>
+                 <td><a href="/course/?courseid=<%= rs[i].Num %>"><%= rs[i].Name %><td><%= rs[i].Num %></td><td><%= rs[i].MPG %>
+                         </td><td><%= rs[i].FGP %></td><td><%= rs[i].ThreePP %></td><td><%= rs[i].APG %></td>
+                         <td><%= rs[i].RPG %></td><td><%= rs[i].SPG %></td><td><%= rs[i].PPG %></td>
+                         <td><a href="/course/updateseason/?courseid=<%= rs[i].Num %>">Edit</td>
+                    <td><a href="/course/deleteseason/?courseid=<%= rs[i].Num %>">Delete</td></a></td>
+                </tr>
+            <% } %>
+        </table>
+    <% } else { %>
+         No courses are entered into the Course database table.
+    <% } %>
+        </div>
+
+    <div style="margin-top:10px;">
+        <a href="/course/createseason">Add Player To Season Stats.</a>
+    </div>
+
+
+<footer>Copyright © Danit</footer>

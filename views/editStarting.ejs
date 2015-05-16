@@ -1,0 +1,79 @@
+<% // create a list of javascript files to have the header load %>
+<% var js_include = ['edit_startinglineup.js']; %>
+<% include header %>
+<style>
+    header {
+        background-color:gold;
+        color:white;
+        text-align:center;
+        padding:5px;
+    }
+    nav {
+        line-height:30px;
+        background-color:goldenrod;
+        height:645px;
+        width:150px;
+        float:left;
+        padding:5px;
+    }
+    section {
+        width:520px;
+        float:left;
+        padding:10px;
+    }
+    footer {
+        background-color:gold;
+        color:black;
+        clear:both;
+        text-align:center;
+        padding:5px;
+    }
+</style>
+<header>
+    <h1>GSW MANAGEMENT</h1>
+</header>
+<nav>
+    <br>
+    <a href="/">Home</a><br>
+    <a href="/course/create">Add Players</a><br>
+    <a href="/course/dropdown_ajax">Team Roster</a><br>
+    <a href="/course/startinglineup">Starting Lineup</a><br>
+    <a href="/course/seasonstats">Season Statistics</a><br>
+    <a href="/course/gamestats">Game Statistics</a><br>
+    <a href="/course/points">Total Points in Game</a><br>
+    <a href="/course/highscoring">High Scoring Players</a><br>
+    <a href="/about">About</a><br>
+</nav>
+<section>
+        <center><h2> Edit Starting Lineup</h2>
+            <h4>**Please Enter An Existing PositionID Where You Wish to Edit**</h4>
+
+<!-- Note that this is a post -->
+<form id="create_user_form" action="<%= action %>">
+    <table id="login">
+        <tr><td>*Enter Existing PositionID*</td>
+            <td><input type="text" id="PositionID" name="PositionID" /></td>
+        </tr>
+        <tr><td>Position :</td>
+            <td><input type="text" id="Position" name="Position" /></td>
+        </tr>
+        <tr><td>Starter:</td>
+            <td><input type="text" id="Starter" name="Starter" /></td>
+        </tr>
+        <tr><td>Second :</td>
+            <td><input type="text" id="Second" name="Second" /></td>
+        </tr>
+        </tr>
+        <tr><td>Third :</td>
+            <td><input type="text" id="Third" name="Third" /></td>
+        </tr>
+    </table>
+    <!-- not that we use a button here and not submit -->
+    <input type="button" id="createCourseBtn" value="Create" />
+</form>
+
+<div id="output" style="margin:10px;display:none"></div>
+        </center>
+</section>
+<footer>Copyright © Danit</footer>
+

@@ -1,0 +1,91 @@
+<% // create a list of javascript files to have the header load %>
+<% var js_include = ['create_seasonstats.js']; %>
+<% include header %>
+<style>
+    header {
+        background-color:gold;
+        color:white;
+        text-align:center;
+        padding:5px;
+    }
+    nav {
+        line-height:30px;
+        background-color:goldenrod;
+        height:645px;
+        width:150px;
+        float:left;
+        padding:5px;
+    }
+    section {
+        width:520px;
+        float:left;
+        padding:10px;
+    }
+    footer {
+        background-color:gold;
+        color:black;
+        clear:both;
+        text-align:center;
+        padding:5px;
+    }
+</style>
+<header>
+    <h1>GSW MANAGEMENT</h1>
+</header>
+<nav>
+    <br>
+    <a href="/">Home</a><br>
+    <a href="/course/create">Add Players</a><br>
+    <a href="/course/dropdown_ajax">Team Roster</a><br>
+    <a href="/course/startinglineup">Starting Lineup</a><br>
+    <a href="/course/seasonstats">Season Statistics</a><br>
+    <a href="/course/gamestats">Game Statistics</a><br>
+    <a href="/course/points">Total Points in Game</a><br>
+    <a href="/course/highscoring">High Scoring Players</a><br>
+    <a href="/about">About</a><br>
+</nav>
+<section>
+        <center><h2>Add a Player into Season Statistics</h2>
+
+<!-- Note that this is a post -->
+<form id="create_user_form" action="<%= action %>">
+    <table id="login">
+        <tr><td>N.O. :</td>
+            <td><input type="text" id="Num" name="Num" /></td>
+        </tr>
+        <tr><td>Name :</td>
+            <td><input type="text" id="Name" name="Name" /></td>
+        </tr>
+        <tr><td>MPG :</td>
+            <td><input type="text" id="MPG" name="MPG" /></td>
+        </tr>
+        <tr><td>FGP :</td>
+            <td><input type="text" id="FGP" name="FGP" /></td>
+        </tr>
+        </tr>
+        <tr><td>3PP :</td>
+            <td><input type="text" id="ThreePP" name="ThreePP" /></td>
+        </tr>
+        <tr><td>APG :</td>
+            <td><input type="text" id="APG" name="APG" /></td>
+        </tr>
+        </tr>
+        <tr><td>RPG :</td>
+            <td><input type="text" id="RPG" name="RPG" /></td>
+        </tr>
+        <tr><td>SPG :</td>
+            <td><input type="text" id="SPG" name="SPG" /></td>
+        </tr>
+        <tr><td>PPG :</td>
+            <td><input type="text" id="PPG" name="PPG" /></td>
+        </tr>
+    </table>
+    <!-- not that we use a button here and not submit -->
+    <input type="button" id="createCourseBtn" value="Create" />
+</form>
+
+<div id="output" style="margin:10px;display:none"></div>
+        </center>
+</section>
+<footer>Copyright © Danit</footer>
+

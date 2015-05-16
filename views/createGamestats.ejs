@@ -1,0 +1,98 @@
+<% // create a list of javascript files to have the header load %>
+<% var js_include = ['create_gamestats.js']; %>
+<% include header %>
+<style>
+    header {
+        background-color:gold;
+        color:white;
+        text-align:center;
+        padding:5px;
+    }
+    nav {
+        line-height:30px;
+        background-color:goldenrod;
+        height:645px;
+        width:150px;
+        float:left;
+        padding:5px;
+    }
+    section {
+        width:520px;
+        float:left;
+        padding:10px;
+    }
+    footer {
+        background-color:gold;
+        color:black;
+        clear:both;
+        text-align:center;
+        padding:5px;
+    }
+</style>
+<header>
+    <h1>GSW MANAGEMENT</h1>
+</header>
+<nav>
+    <br>
+    <a href="/">Home</a><br>
+    <a href="/course/create">Add Players</a><br>
+    <a href="/course/dropdown_ajax">Team Roster</a><br>
+    <a href="/course/startinglineup">Starting Lineup</a><br>
+    <a href="/course/seasonstats">Season Statistics</a><br>
+    <a href="/course/gamestats">Game Statistics</a><br>
+    <a href="/course/points">Total Points in Game</a><br>
+    <a href="/course/highscoring">High Scoring Players</a><br>
+    <a href="/about">About</a><br>
+</nav>
+<section>
+        <center><h2> Add a Player into Game Statistics</h2>
+
+<!-- Note that this is a post -->
+<form id="create_user_form" action="<%= action %>">
+    <table id="login">
+        <tr><td>N.O. :</td>
+            <td><input type="text" id="Num" name="Num" /></td>
+        </tr>
+        <tr><td>Name :</td>
+            <td><input type="text" id="Name" name="Name" /></td>
+        </tr>
+        <tr><td>Minutes:</td>
+            <td><input type="text" id="Minutes" name="Minutes" /></td>
+        </tr>
+        <tr><td>FG :</td>
+            <td><input type="text" id="FG" name="FG" /></td>
+        </tr>
+        </tr>
+        <tr><td>3P :</td>
+            <td><input type="text" id="ThreeP" name="ThreeP" /></td>
+        </tr>
+        <tr><td>Assists :</td>
+            <td><input type="text" id="Assists" name="Assists" /></td>
+        </tr>
+        </tr>
+        <tr><td>Rebounds :</td>
+            <td><input type="text" id="Rebounds" name="Rebounds" /></td>
+        </tr>
+        <tr><td>Steals:</td>
+            <td><input type="text" id="Steals" name="Steals" /></td>
+        </tr>
+        <tr><td>Fouls :</td>
+            <td><input type="text" id="Fouls" name="Fouls" /></td>
+        </tr>
+        </tr>
+        <tr><td>Turnovers :</td>
+            <td><input type="text" id="Turnovers" name="Turnovers" /></td>
+        </tr>
+        <tr><td>Points :</td>
+            <td><input type="text" id="Points" name="Points" /></td>
+        </tr>
+    </table>
+    <!-- not that we use a button here and not submit -->
+    <input type="button" id="createCourseBtn" value="Create" />
+</form>
+
+<div id="output" style="margin:10px;display:none"></div>
+        </center>
+</section>
+<footer>Copyright © Danit</footer>
+
